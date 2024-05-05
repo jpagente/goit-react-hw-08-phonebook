@@ -1,8 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
-import { Button, TextField, Box } from '@mui/material';
+import { register } from '../../redux/auth/authOperations';
 import css from './RegisterForm.module.css';
-
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -21,49 +19,26 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className={css.wrapper}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          width: 400,
-          gap: 3,
-        }}
-        component="form"
-        onSubmit={handleSubmit}
-      >
-        <TextField
-          autoFocus
-          required
-          type="text"
-          name="name"
-          label="Username"
-          variant="outlined"
-          autoComplete="off"
-          size="small"
-        />
-        <TextField
-          required
-          type="email"
-          name="email"
-          label="Email"
-          variant="outlined"
-          autoComplete="off"
-          size="small"
-        />
-        <TextField
+    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+      <label className={css.label}>
+        Username
+        <input className={css.registerFormInput} type="text" name="name" />
+      </label>
+      <label className={css.label}>
+        Email
+        <input className={css.registerFormInput} type="email" name="email" />
+      </label>
+      <label className={css.label}>
+        Password
+        <input
+          className={css.registerFormInput}
           type="password"
           name="password"
-          label="Password"
-          variant="outlined"
-          autoComplete="off"
-          size="small"
         />
-        <Button variant="contained" size="large" type="submit">
-          Register
-        </Button>
-      </Box>
-    </div>
+      </label>
+      <button className={css.registerFormBtn} type="submit">
+        Register
+      </button>
+    </form>
   );
 };

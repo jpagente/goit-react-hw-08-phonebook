@@ -1,10 +1,12 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
-export default function Register() {
+const RegisterPage = () => {
   return (
     <div>
-      <title>Registration</title>
+      <title>Register</title>
       <RegisterForm />
     </div>
   );
-}
+};
+
+export default RegisterPage;

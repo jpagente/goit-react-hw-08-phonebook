@@ -1,31 +1,25 @@
-  import { useSelector, useDispatch } from 'react-redux';
-  import { changeFilter } from 'redux/filter/filterSlice';
-  import { selectFilter } from 'redux/filter/selectors';
-  import { TextField } from '@mui/material';
+import React from 'react';
+import css from './Filter.module.css';
+import PropTypes from 'prop-types';
 
-  export const Filter = () => {
-    const filter = useSelector(selectFilter);
-    const dispatch = useDispatch();
+export const Filter = ({ filter, setFilter }) => {
+  const handleFilterChange = e => setFilter(e.target.value);
 
-    const handleChangeFilter = event => {
-      const { value } = event.currentTarget;
-      dispatch(changeFilter(value));
-    };
-
-    return (
-      <TextField
-        sx={{
-          width: 370,
-          marginBottom: '15px',
-        }}
+  return (
+    <div className={css.divFilter}>
+      <p>Find Contacts by Name</p>
+      <input
         type="text"
         name="filter"
+        placeholder="Search by name"
         value={filter}
-        label="Find contacts by name"
-        variant="outlined"
-        autoComplete="off"
-        size="small"
-        onChange={handleChangeFilter}
+        onChange={handleFilterChange}
       />
-    );
-  };
+    </div>
+  );
+};
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+};
