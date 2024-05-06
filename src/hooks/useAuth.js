@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
-// prettier-ignore
-import { selectUser, selectIsLoggedIn, selectIsRefreshing } from '../auth/authSelector';
+import {
+  selectUser,
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from 'redux/auth/selectors';
 
 export const useAuth = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

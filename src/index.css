@@ -1,5 +1,4 @@
-@import-normalize;
-/* bring in normalize.css styles */
+@import-normalize; /* bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -15,7 +14,6 @@ code {
     monospace;
 }
 
-/* START OF RESET CSS */
 h1,
 h2,
 h3,
@@ -25,25 +23,13 @@ h6,
 p {
   margin: 0;
 }
-
 ul,
 ol {
   margin: 0;
   padding: 0;
-  list-style: none;
 }
-
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 700;
-  margin-right: 20px;
-}
-
-/* END OF RESET CSS */
